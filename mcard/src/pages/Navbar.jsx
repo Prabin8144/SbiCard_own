@@ -54,7 +54,7 @@ const Navbar = () => {
         <div style={{ marginLeft: "-460px", cursor: "pointer" }}>
           <a href="http://localhost:3000/">
             <Navimg
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4wA1TVHRYEzzNRMqC6mE9Mmm17u5kXXpllA&usqp=CAU"
+              src="https://mcart24.com/media/logo/websites/1/mcart24-logo_1.png"
               alt="praveen"
             />
           </a>

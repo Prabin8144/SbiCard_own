@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import Slider from './Slider'
 import styles from "../CssComponent/home.module.css"
+import Footer from './Footer'
 const Home = () => {
   return (
     <>
@@ -54,6 +55,7 @@ multiple device platforms</p>
        <h4>Go With Mcard</h4>
        <p>Enjoy your life</p>
      </div>
+     <Footer/>
     </>
   )
 }

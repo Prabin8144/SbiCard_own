@@ -4,7 +4,7 @@
     color: #141414;
     border-right: solid 1px #e5e5e5;
     text-align: center;
-    
+    cursor: pointer;
 
 }
 .btn p:hover{

@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Slider from './Slider'
 import styles from "../CssComponent/home.module.css"
 import Footer from './Footer'
+import { Link } from 'react-router-dom'
 const Home = () => {
   return (
     <>
@@ -46,7 +47,7 @@ multiple device platforms</p>
           </div>
      </div>
      <div className={styles.btnio}>
-      <h4>Pay Utility Bills</h4>
+      <Link to="/login"><h4 style={{crusor:"pointer"}}>Pay Utility Bills</h4></Link>
      </div>
      <div>
       <Slider/>

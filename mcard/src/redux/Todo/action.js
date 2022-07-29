@@ -39,7 +39,7 @@ export const addcart = (payload)=>({
 export const getProducts = () => async (dispatch) => {
   dispatch(getProductRequested());
   try {
-    let res = await axios.get("http://localhost:8080/data");
+    let res = await axios.get("http://localhost:4000/data");
     let data = await res.data;
 
     dispatch(getProductSuccess(data));
@@ -56,7 +56,7 @@ let userData;
 export const toCart = (id, mobile) => async (dispatch) => {
   try {
     let res = await axios.get(
-      `http://localhost:8080/data/${id}`
+      `http://localhost:4000/data/${id}`
     );
     let data = await res.data;
     dispatch(addcart(data));
@@ -76,7 +76,7 @@ export const deleteProduct = (data, id) => async (dispatch) => {
 
   try {
     let patch = await fetch(
-      `http://localhost:8080/data/${id}`,
+      `http://localhost:4000/data/${id}`,
       {
         method: "PATCH",
         headers: { "content-type": "application/json" },

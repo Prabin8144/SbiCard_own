@@ -3,37 +3,50 @@
     width:100%;
     background-color: beige;
     color: cornflowerblue;
-    
-}
-.lpol h1{
- 
-    font-weight:900px;
 
 }
+.lpol >  h1{
+    text-align: center;
+    font-weight:900px;
+    padding-top: 30px;
+}
 .lpol p{
+  text-align: center;
   margin-top: 50px;
 }
 .cardall{
     display: grid;
-    
+    text-align: center;
    
 }
 .locard{
     display: grid;
     gap: 20px;
+    margin: auto;
+    width: 85%;
+    margin-top: 20px;
     grid-template-columns: repeat(2,1fr); 
 }
+.locard > div{
+  /* border: 1px solid red; */
+}
 .cardall button{
-  background: #1bbbf5;
+  background: black;
   text-align: center;
-  margin: 25px auto;
+  /* margin: 20px auto; */
+  margin-bottom: 20px;
   width: 320px;
   color: #fff;
-  font-size: 1.7rem;
-  padding-top: 8px;
+  font-size: 1.5rem;
   border-radius: 5px;
   height: 45px;
+  border: none;
+  cursor: pointer;
+  transition: 1s;
   box-sizing: border-box;
+}
+.cardall button:hover{
+  background: #1bbbf5;
 }
 
 
@@ -42,20 +55,25 @@
 /* CredPage */
 
 .cmain{
-  display:flex;
-  gap:20px;
-  width: 80%;
+  /* display:flex; */
+  /* gap:20px; */
+  width: 85%;
   margin: auto;
-  margin-top: 50px;
-
+  margin-top: 20px;
+  /* border: 1px solid red; */
 }
 .datar{
   display:grid;
   grid-template-columns: repeat(3,1fr);
   gap:20px
 }
+.datar > div{
+  /* border: 1px solid red; */
+}
 .mkl{
-  margin-top:250px;
-  
-
+  /* margin-top:250px; */
+  /* border: 1px solid black; */
+}
+.mkl > h2{
+  margin-left: 20px;
 }

@@ -1,10 +1,47 @@
 import React from "react";
 import Slider from "./Slider";
 import styles from "../CssComponent/home.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
+
 const Home = () => {
+  const navigate = useNavigate();
+  let user = JSON.parse(localStorage.getItem("auth")) || [];
+  const [allData, setAllData] = useState();
+  // console.log(user, "user");
+
+  useEffect(()=>{
+    const getData = async() => {
+      let res = await fetch("http://localhost:8080/form/get")
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res.allForms,"rrr");
+        setAllData(res.allForms);
+        console.log(allData,"data");
+      })
+      .catch((e)=>console.log(e));
+    }
+    getData();
+  },[])
+
   return (
     <>
+      {/* <div style={{width:"80%",margin:"auto",border:"1px solid red"}}>
+        <table>
+          <thead>
+            <tr>Name</tr>
+            <tr>Email</tr>
+            <tr>Date of Birth</tr>
+            <tr>Mobile No</tr>
+            <tr>Salary</tr>
+            <tr>Address</tr>
+            <tr>Adhar No</tr>
+            <tr>PAN No</tr>
+          </thead>
+
+        </table>
+      </div> */}
       <div className={styles.main}>
         <div className={styles.data}>
           <h1>MCard All In One</h1>

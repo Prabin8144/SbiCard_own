@@ -15,10 +15,12 @@ import About from './pages/About';
 import HomeCredit from './pages/HomeCredit';
 import CardPage from './pages/CardPage';
 import Video from './pages/Video';
+import "./App.css"
+import Form from './pages/Form';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <Navbar />
 
       <Routes>
@@ -28,11 +30,11 @@ function App() {
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/offer' element={<Offer/>}/>
-        {/* <Route path='/credit-card' element={<CardApp/>}/> */}
         <Route path='/cardpage' element={<CardPage/>}/>
         <Route path='/video' element={<Video/>}/>
         <Route path='/HomeCred' element={<HomeCredit/>}/>
         <Route path='/HomeCred/:id' element={<CardPage/>}/>
+        <Route path='/form' element={<Form/>}/>
       </Routes>
       
       <Footer />

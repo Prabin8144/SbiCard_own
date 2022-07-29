@@ -1,6 +1,7 @@
 const express = require("express");
 const connection = require("./db");
 const authRouter = require("./routes/auth.route");
+const formRouter = require("./routes/form.route");
 const cors = require("cors");
 const app = express();
 require("dotenv").config();
@@ -10,6 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/auth",authRouter);
+app.use("/form",formRouter);
 
 app.get("/", (req, res) => {
   res.send("Welcome");

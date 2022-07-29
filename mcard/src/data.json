@@ -1,0 +1,52 @@
+[
+    {
+        "title":"Aircraft Master Gold",
+        "tpye":"Gold",
+        "price":"1000",
+        "description":"Aircraft Master give Cashback on AirTicket Booking",
+        "image":"https://i.postimg.cc/cLF0YjCv/plane.png"
+    },
+    {
+        "title":"Mcard Hotel Master",
+        "tpye":"platinum",
+        "price":"765",
+        "description":"Mcard Hotel Master Paltinum Card Provides CashBack On Hotel Booking",
+        "image":"https://i.postimg.cc/XYGQcB79/hotel.png"
+    },
+    {
+        "title":"Shoppingh Exensive",
+        "tpye":"Gold",
+        "price":"788",
+        "description":"Give Cashback on Offline shopping",
+        "image":"https://i.postimg.cc/mr7jKx9D/Screenshot-cart2.png"
+    },
+    {
+        "title":" Food Daimond++",
+        "tpye":"Daimond",
+        "price":"756",
+        "description":"Food Diamond Have Features To Order Food On Your Favourite Resturant",
+        "image":"https://i.postimg.cc/P5s89CQW/food.png"
+    },
+    {
+        "title":"Shopping Buzz Card",
+        "tpye":"Buzz",
+        "price":"646",
+        "description":"Shopping Buzz Card Help To Buy Branded Jeans",
+        "image":"https://i.postimg.cc/5tPBhx0f/shop.png"
+    },
+    {
+        "title":"Railway Gold Creditmaster",
+        "tpye":"Gold",
+        "price":"550",
+        "description":"Railway Gold Card Provides Cashback On Every Tickets",
+        "image":"https://i.postimg.cc/SQLsRg6M/train.png"
+    },
+    {
+        "title":"Visa Paltinum Simple Card",
+        "tpye":"Simple",
+        "price":"233",
+        "description":"Visa Card Provides lot of benifits along with Cashback...",
+        "image":"https://i.postimg.cc/bvqLXC99/Screenshot-cart5.png"
+    }
+
+]

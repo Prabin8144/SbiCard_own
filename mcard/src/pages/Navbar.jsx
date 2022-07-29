@@ -27,8 +27,8 @@ const Navinput = styled.input`
   background-image: radial-gradient(ellipse at center, #fff, #fff);
   // border: 1px solid #000;
   outline:none;
-  border-radius: 3px;
-  
+  // border-radius: 3px;
+  border:none;
   width: 380px;
   padding: 6px;
 `;
@@ -40,12 +40,12 @@ const Navbar = () => {
       <Baneer />
       <NavBarStyled style={{ padding: "10px" }}>
         <div style={{ padding: "20px" }}>
-          <div style={{ display: "flex",border:"1px solid black",height:"35px" }}>
+          <div style={{ display: "flex",border:"1px solid black",height:"35px",width:'150px' }}>
             <Navinput type="text" placeholder="Search here..." />
             <div style={{height:"100%", backgroundColor: "rgb(66,66,66)",color: "white", cursor: "pointer",boxShadow: "1px 0 6px -3px #b5b5b5 inset"}}>
               <FaSearch
                 style={{
-                  padding: "5px",
+                  // padding: "5px",
                   backgroundColor: "rgb(66,66,66)",
                   color: "white",
                   cursor: "pointer",

@@ -35,6 +35,9 @@ const Navinput = styled.input`
 
 const Navbar = () => {
   const navigate = useNavigate();
+  let user = JSON.parse(localStorage.getItem("auth")) || [];
+  console.log(user,"user");
+
   return (
     <div>
       <Baneer />
@@ -116,14 +119,16 @@ const Navbar = () => {
             <Link to="signup">
               <p>Sign Up</p>
             </Link>
-            <Link to="login">
+            <Link to="login" >
               <MdAccountCircle
                 style={{
                   height: "60px",
                   width: "35px",
                   cursor: "pointer",
+                  display: user.first_name && "none"
                 }}
               />
+              <p style={{display: !user.first_name && "none"}}>Mr. {user.first_name}</p>
             </Link>
           </div>
         </div>

@@ -145,6 +145,7 @@ const Login = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const [form, setForm] = useState({});
+  const [data, setData] = useState([]);
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -173,6 +174,9 @@ const Login = () => {
           setError(false);
           setSuccess(true);
           console.log(res.payload);
+          // setData(res.payload);
+          localStorage.setItem("auth",JSON.stringify(res.payload));
+          // localStorage.setItem("auth",JSON.stringify({name:"manoj",surname:"b"}));
           setTimeout(()=>{
             navigate("/");
           }, 4000);

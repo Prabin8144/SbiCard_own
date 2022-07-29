@@ -1,5 +1,4 @@
 import logo from './logo.svg';
-import "./App.css"
 import Home from './pages/Home';
 import Navbar from './pages/Navbar';
 import { Route, Routes } from 'react-router-dom';
@@ -15,10 +14,11 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import HomeCredit from './pages/HomeCredit';
 import CardPage from './pages/CardPage';
+import Video from './pages/Video';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar />
 
       <Routes>
@@ -30,6 +30,7 @@ function App() {
         <Route path='/offer' element={<Offer/>}/>
         <Route path='/credit-card' element={<CardApp/>}/>
         <Route path='/cardpage' element={<CardPage/>}/>
+        <Route path='/video' element={<Video/>}/>
       </Routes>
       
       <Footer />

@@ -66,7 +66,7 @@ const Home = () => {
         </div>
       </div>
       <div className={styles.btnio}>
-        <Link to="/login">
+        <Link to="/login" style={{textDecoration:"none"}}>
           <h4 style={{ crusor: "pointer" }}>Pay Utility Bills</h4>
         </Link>
       </div>

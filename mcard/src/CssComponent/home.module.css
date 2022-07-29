@@ -2,11 +2,11 @@
   display: block;
   font-size: large;
   color: #141414;
-  border-right: solid 1px #e5e5e5;
   text-align: center;
 }
 .btn p:hover {
   color: #0095d9;
+  border-bottom: 2px solid #05f883;
 }
 .main {
   display: flex;

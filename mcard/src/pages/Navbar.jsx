@@ -32,6 +32,9 @@ const Navinput = styled.input`
   width: 380px;
   padding: 6px;
 `;
+const P1 = styled.p`
+
+`
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -41,12 +44,12 @@ const Navbar = () => {
   return (
     <div>
       <Baneer />
-      <NavBarStyled style={{ padding: "10px" }}>
+      <NavBarStyled>
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            width: "280px",
+            width: "300px",
             marginLeft: "20px",
           }}
         >
@@ -56,17 +59,18 @@ const Navbar = () => {
               border: "2px solid black",
               height: "35px",
               width: "100%",
+              boxSizing: "border-box"
             }}
           >
             <Navinput
               type="text"
               placeholder="Search here..."
-              style={{ width: "86%" }}
+              style={{ width: "260px" }}
             />
             <div
               style={{
                 height: "100%",
-                width: "14%",
+                width: "40px",
                 backgroundColor: "rgb(66,66,66)",
                 color: "white",
                 cursor: "pointer",
@@ -75,7 +79,7 @@ const Navbar = () => {
             >
               <FaSearch
                 style={{
-                  // padding: "5px",
+                  marginLeft:"14px",
                   backgroundColor: "rgb(66,66,66)",
                   color: "white",
                   cursor: "pointer",
@@ -85,7 +89,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div style={{ cursor: "pointer" }}>
+        <div style={{ cursor: "pointer"}}>
           <a href="http://localhost:3000/">
             <Navimg
               src="https://mcart24.com/media/logo/websites/1/mcart24-logo_1.png"
@@ -102,33 +106,37 @@ const Navbar = () => {
               padding: "10px",
               color: "rgb(30,81,108)",
               border: "none",
+              outline: "none"
             }}
           >
-            <Link to="about">
-              <p>About Us</p>
+            <Link to="about" style={{textDecoration:"none"}}>
+              <P1>About Us</P1>
             </Link>
-            <Link to="credit-card">
-              <p>Credit Card</p>
+            <Link to="credit-card" style={{textDecoration:"none"}}>
+              <P1>Credit Card</P1>
             </Link>
-            <Link to="offer">
-              <p>Offers</p>
+            <Link to="offer" style={{textDecoration:"none"}}>
+              <P1>Offers</P1>
             </Link>
-            <Link to="contact">
-              <p>Contact Us</p>
+            <Link to="contact" style={{ display: user.areYou === "employee" && "none",textDecoration:"none" }}>
+              <P1>Contact Us</P1>
             </Link>
-            <Link to="signup" style={{ display: user.first_name && "none" }}>
-              <p>Sign Up</p>
+            <Link to="video" style={{ display: !user.areYou === "employee" && "none",textDecoration:"none" }}>
+              <P1>Video Chat</P1>
+            </Link>
+            <Link to="signup" style={{ display: user.first_name && "none",textDecoration:"none" }}>
+              <P1>Sign Up</P1>
             </Link>
             <div style={{ display: !user.first_name && "none", cursor:"pointer" }}>
-              <p
+              <P1
                 onClick={() => {
                   localStorage.setItem("auth", JSON.stringify(""));
                 }}
               >
                 Logout
-              </p>
+              </P1>
             </div>
-            <Link to="login">
+            <Link to="login" style={{textDecoration:"none"}}>
               <MdAccountCircle
                 style={{
                   height: "60px",
@@ -137,9 +145,9 @@ const Navbar = () => {
                   display: user.first_name && "none",
                 }}
               />
-              <p style={{ display: !user.first_name && "none" }}>
+              <P1 style={{ display: !user.first_name && "none" }}>
                 Mr. {user.first_name}
-              </p>
+              </P1>
             </Link>
           </div>
         </div>

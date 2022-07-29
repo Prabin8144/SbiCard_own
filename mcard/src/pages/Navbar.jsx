@@ -5,7 +5,8 @@ import { MdAccountCircle } from "react-icons/md";
 import { FaCartPlus } from "react-icons/fa";
 // import Menu from "./Menu";
 import Baneer from "./Baneer";
-import styles from "../CssComponent/home.module.css"
+import styles from "../CssComponent/home.module.css";
+import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 const NavBarStyled = styled.div`
@@ -31,9 +32,10 @@ const Navinput = styled.input`
 `;
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div>
-     <Baneer/>
+      <Baneer />
       <NavBarStyled style={{ padding: "10px" }}>
         <div style={{ padding: "20px" }}>
           <div style={{ display: "flex" }}>
@@ -45,7 +47,7 @@ const Navbar = () => {
                   padding: "5px",
                   backgroundColor: "rgb(66,66,66)",
                   color: "white",
-                  cursor: "pointer",  
+                  cursor: "pointer",
                 }}
               />
             </div>
@@ -60,25 +62,28 @@ const Navbar = () => {
           </a>
         </div>
         <div>
-          <div className={styles.btn}
+          <div
+            className={styles.btn}
             style={{
               marginLeft: "-300px",
               gap: "20px",
               display: "flex",
               padding: "10px",
               color: "rgb(30,81,108)",
+              border: "none"
             }}
           >
-          <p>About</p>
-          <p>Offers</p>
-          <p>Pay</p>
-              <MdAccountCircle
-                style={{
-                  height: "60px",
-                  width: "35px",
-                  cursor: "pointer",
-                }}
-              />
+            <p>About</p>
+            <p>Offers</p>
+            <p>Pay</p>
+            <MdAccountCircle
+              style={{
+                height: "60px",
+                width: "35px",
+                cursor: "pointer",
+              }}
+              onClick={()=>navigate('signup')}
+            />
           </div>
         </div>
       </NavBarStyled>

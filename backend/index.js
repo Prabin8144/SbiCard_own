@@ -14,6 +14,9 @@ app.use("/auth",authRouter);
 app.get("/", (req, res) => {
   res.send("Welcome");
 });
+app.get("/post", (req, res) => {
+  res.send("Helathy");
+});
 
 app.listen(port, async () => {
   try {

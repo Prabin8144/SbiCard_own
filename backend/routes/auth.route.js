@@ -9,16 +9,30 @@ authRouter.post(
   body("first_name")
     .exists()
     .withMessage("first name required")
+    .isLength({ min: 1 })
+    .withMessage("first name not valid")
     .isString()
     .withMessage("only string allowed"),
-  check("last_name", "last name required")
-    .notEmpty()
+  body("last_name")
+    .exists()
+    .withMessage("last name required")
+    .isLength({ min: 1 })
+    .withMessage("last name not valid")
+    .isString()
     .withMessage("only string allowed"),
-  check("email", "email required")
-    .notEmpty()
+  body("email")
+    .exists()
+    .withMessage("email required")
+    .isLength({ min: 1 })
+    .withMessage("email not valid")
+    .isString()
     .withMessage("only string allowed"),
-  check("password", "password required")
-    .notEmpty()
+  body("password")
+    .exists()
+    .withMessage("password required")
+    .isLength({ min: 1 })
+    .withMessage("password not valid")
+    .isString()
     .withMessage("only string allowed"),
   check("areYou", "areYou required")
     .notEmpty()
@@ -41,31 +55,35 @@ authRouter.post(
 );
 
 authRouter.post("/login", async (req, res) => {
-  const isUser = await UserModel.find(req.body);
-  if (isUser.length >= 1) {
-    let {
-      first_name,
-      last_name,
-      email,
-      password,
-      areYou,
-      status,
-      isCreditScore,
-      isVerified,
-    } = isUser[0];
+  if (req.body.email && req.body.password) {
+    const isUser = await UserModel.find(req.body);
+    if (isUser.length >= 1) {
+      let {
+        first_name,
+        last_name,
+        email,
+        password,
+        areYou,
+        status,
+        isCreditScore,
+        isVerified,
+      } = isUser[0];
 
-    let payload = {
-      first_name,
-      last_name,
-      email,
-      password,
-      areYou,
-      status,
-      isCreditScore,
-      isVerified,
-      id: isUser[0]._id,
-    };
-    res.send({message: "Login successful!", payload});
+      let payload = {
+        first_name,
+        last_name,
+        email,
+        password,
+        areYou,
+        status,
+        isCreditScore,
+        isVerified,
+        id: isUser[0]._id,
+      };
+      res.send({ message: "Login successful!", payload });
+    } else {
+      res.send({ message: "Wrong credentials" });
+    }
   } else {
     res.send({ message: "Wrong credentials" });
   }

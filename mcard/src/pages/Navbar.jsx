@@ -26,9 +26,9 @@ color:white
 const Navinput = styled.input`
   background-image: radial-gradient(ellipse at center, #fff, #fff);
   // border: 1px solid #000;
-  outline:none;
+  outline: none;
   border-radius: 3px;
-  
+  border: none;
   width: 380px;
   padding: 6px;
 `;
@@ -39,23 +39,50 @@ const Navbar = () => {
     <div>
       <Baneer />
       <NavBarStyled style={{ padding: "10px" }}>
-        <div style={{ padding: "20px" }}>
-          <div style={{ display: "flex",border:"1px solid black",height:"35px" }}>
-            <Navinput type="text" placeholder="Search here..." />
-            <div style={{height:"100%", backgroundColor: "rgb(66,66,66)",color: "white", cursor: "pointer",boxShadow: "1px 0 6px -3px #b5b5b5 inset"}}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            width: "280px",
+            marginLeft: "20px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              border: "2px solid black",
+              height: "35px",
+              width: "100%",
+            }}
+          >
+            <Navinput
+              type="text"
+              placeholder="Search here..."
+              style={{ width: "86%" }}
+            />
+            <div
+              style={{
+                height: "100%",
+                width: "14%",
+                backgroundColor: "rgb(66,66,66)",
+                color: "white",
+                cursor: "pointer",
+                boxShadow: "1px 0 6px -3px #b5b5b5 inset",
+              }}
+            >
               <FaSearch
                 style={{
-                  padding: "5px",
+                  // padding: "5px",
                   backgroundColor: "rgb(66,66,66)",
                   color: "white",
                   cursor: "pointer",
-                  marginTop:"5px"
+                  marginTop: "10px",
                 }}
               />
             </div>
           </div>
         </div>
-        <div style={{  cursor: "pointer" }}>
+        <div style={{ cursor: "pointer" }}>
           <a href="http://localhost:3000/">
             <Navimg
               src="https://mcart24.com/media/logo/websites/1/mcart24-logo_1.png"
@@ -63,7 +90,7 @@ const Navbar = () => {
             />
           </a>
         </div>
-        <div style={{marginRight: "20px"}}>
+        <div style={{ marginRight: "20px" }}>
           <div
             className={styles.btn}
             style={{
@@ -71,19 +98,33 @@ const Navbar = () => {
               display: "flex",
               padding: "10px",
               color: "rgb(30,81,108)",
-              border: "none"
+              border: "none",
             }}
           >
-          <Link to="/about"><p>About Us</p></Link>
-          <Link to="/offer"><p>Offers</p></Link>
-          <Link to="/contact"><p>Contact Us</p></Link>
-          <Link to="/signup"><MdAccountCircle
+            <Link to="about">
+              <p>About Us</p>
+            </Link>
+            <Link to="credit-card">
+              <p>Credit Card</p>
+            </Link>
+            <Link to="offer">
+              <p>Offers</p>
+            </Link>
+            <Link to="contact">
+              <p>Contact Us</p>
+            </Link>
+            <Link to="signup">
+              <p>Sign Up</p>
+            </Link>
+            <Link to="login">
+              <MdAccountCircle
                 style={{
                   height: "60px",
                   width: "35px",
                   cursor: "pointer",
                 }}
-              /></Link>
+              />
+            </Link>
           </div>
         </div>
       </NavBarStyled>

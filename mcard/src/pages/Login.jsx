@@ -1,10 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BsFillHandbagFill, BsFillHeartFill } from "react-icons/bs";
 import { IoMdNotifications } from "react-icons/io";
 import { AiOutlineSave } from "react-icons/ai";
 import { MdDataSaverOff } from "react-icons/md";
+import TextField from "@mui/material/TextField";
+import Alert from "@mui/material/Alert";
 
 const MainDiv = styled.div`
   width: 900px;
@@ -88,7 +90,7 @@ const Div2 = styled.div`
   display: ${(props) => (props.isLoggedIn ? "none" : "flex")};
   align-items: center;
   margin-top: 10px;
-  input{
+  input {
     cursor: pointer;
   }
   label {
@@ -97,12 +99,9 @@ const Div2 = styled.div`
     font-weight: 500;
   }
 `;
-const ForgotP = styled.p`
-  margin: 0;
-  display: ${(props) => props.isLoggedIn === false && "none"};
-`;
+
 const Button = styled.button`
-  width: 302px;
+  width: 100%;
   height: 37px;
   margin-top: 25px;
   background: #1c1c1c;
@@ -121,13 +120,62 @@ const P3 = styled.p`
   text-decoration: underline;
   cursor: pointer;
 `;
-const P4 = styled.p`
-  display: ${(props) => props.isLoggedIn === true && "none"};
+
+const AlertDiv = styled.div`
+  margin: 8px 0;
+  display: ${(props) => (props.error ? "flex" : "none")};
+`;
+const AlertDiv2 = styled.div`
+  margin: 8px 0;
+  display: ${(props) => (props.success ? "flex" : "none")};
 `;
 
 const Login = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+  const [form, setForm] = useState({});
+
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+    // console.log(form);
+  };
+  const handleSubmit = (e) => {
+    let payload = JSON.stringify(form);
+    console.log(payload)
+    fetch(`http://localhost:8080/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: payload,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (!res.payload) {
+          setError(true);
+          setSuccess(false);
+          console.log(res.errors);
+        }
+        if (res.payload) {
+          setError(false);
+          setSuccess(true);
+          console.log(res.payload);
+          setTimeout(()=>{
+            navigate("/");
+          }, 4000);
+        }
+        console.log(res);
+      })
+      .catch((e) => {
+        setError(true);
+        setSuccess(false);
+        console.log(e);
+      });
+  };
 
   return (
     <MainDiv>
@@ -167,34 +215,34 @@ const Login = () => {
       </LeftDiv>
       <RightDiv>
         <InnerDiv>
-          <Title>
-            {isLoggedIn ? "Log in to your account" : "Create an account"}
-          </Title>
+          <AlertDiv error={error}>
+            <Alert style={{width: "100%"}} severity="error">Invalid details!</Alert>
+          </AlertDiv>
+          <AlertDiv2 success={success}>
+            <Alert style={{width: "100%"}} severity="success">Login successful!</Alert>
+          </AlertDiv2>
+          <Title>Log in to your account</Title>
           <P1>
-            Compare across 500+ stores <br />
-            to find the best price.
+            Compare across 500+ cards <br />
+            to find the best suitable card for you.
           </P1>
           <Div1>
-            <input type="string" name="first_name" placeholder="First name" />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              onChange={handleChange}
+            />
           </Div1>
           <Div1>
-            <input type="string" name="last_name" placeholder="Last name" />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={handleChange}
+            />
           </Div1>
-          <Div1>
-            <input type="email" name="email" placeholder="Email" />
-          </Div1>
-          <Div1>
-            <input type="password" name="password" placeholder="Password" />
-          </Div1>
-          <Div2 isLoggedIn={isLoggedIn}>
-            <label>Are you: </label>
-            <input type="radio" name="areYou" value="employee" />
-            <label for="employee">Employee</label><br />
-            <input type="radio" id="css" name="areYou" value="customer" />
-            <label for="customer">Customer</label><br />
-          </Div2>
-          <ForgotP isLoggedIn={isLoggedIn}>Forgot Password?</ForgotP>
-          <Button>{"Sign Up"}</Button>
+          <Button onClick={handleSubmit}>Sign In</Button>
           <P2>or</P2>
           <SocialIcons>
             <img
@@ -214,11 +262,9 @@ const Login = () => {
               alt=""
             />
           </SocialIcons>
-          <P3>{"Already have an account? Please Sign in."}</P3>
-          <P4 isLoggedIn={isLoggedIn}>
-            By creating an account, I agree to <br />
-            the Terms of Use and the Privacy Policy
-          </P4>
+          <P3>
+            <NavLink to="/signup">Don't have an account? Please Sign up.</NavLink>
+          </P3>
         </InnerDiv>
       </RightDiv>
     </MainDiv>

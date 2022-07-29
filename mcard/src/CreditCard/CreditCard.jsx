@@ -4,6 +4,7 @@ import styled from "./Styled.module.css";
 import visaImg from "./imagedata/symbols.png";
 import chipImg from "./imagedata/chip.png";
 import mcart from "./imagedata/mcart.png";
+import symbols from "./imagedata/symbols.png";
 
 
 function CreditCard({data}) {
@@ -15,7 +16,7 @@ function CreditCard({data}) {
       <div id={styled.Card}>
         <div id={styled.Cardtype}>
         <img src={mcart} alt="card type" style={{height:"40px",marginRight:"150px"}} />
-          <img src={visaImg} alt="card type" style={{height:"60px",marginRight:"25px"}} />
+          <img src={symbols} alt="card type" style={{height:"60px",marginRight:"25px"}} />
         </div>
         <div style={{ paddingLeft: "30px", marginTop: "-5px" }}>
           <img src={chipImg} alt="chip" style={{height:"35px"}}/>

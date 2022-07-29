@@ -13,6 +13,8 @@ import CardApp from './CreditCard/CardApp';
 import Offer from './pages/Offer';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import HomeCredit from './pages/HomeCredit';
+import CardPage from './pages/CardPage';
 
 function App() {
   return (
@@ -27,9 +29,11 @@ function App() {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/offer' element={<Offer/>}/>
         <Route path='/credit-card' element={<CardApp/>}/>
+        <Route path='/cardpage' element={<CardPage/>}/>
       </Routes>
-
+      
       <Footer />
+     
     </div>
   );
 }

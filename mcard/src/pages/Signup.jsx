@@ -180,7 +180,7 @@ const Signup = () => {
           console.log(res.data);
           setTimeout(()=>{
             navigate("/login");
-          }, 5000);
+          }, 3000);
         }
       })
       .catch((e) => {

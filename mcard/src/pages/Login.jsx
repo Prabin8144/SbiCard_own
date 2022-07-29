@@ -179,7 +179,7 @@ const Login = () => {
           // localStorage.setItem("auth",JSON.stringify({name:"manoj",surname:"b"}));
           setTimeout(()=>{
             navigate("/");
-          }, 4000);
+          }, 3000);
         }
         console.log(res);
       })

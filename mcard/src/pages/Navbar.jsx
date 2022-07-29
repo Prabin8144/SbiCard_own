@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
@@ -36,7 +36,7 @@ const Navinput = styled.input`
 const Navbar = () => {
   const navigate = useNavigate();
   let user = JSON.parse(localStorage.getItem("auth")) || [];
-  console.log(user,"user");
+  console.log(user, "user");
 
   return (
     <div>
@@ -116,19 +116,30 @@ const Navbar = () => {
             <Link to="contact">
               <p>Contact Us</p>
             </Link>
-            <Link to="signup">
+            <Link to="signup" style={{ display: user.first_name && "none" }}>
               <p>Sign Up</p>
             </Link>
-            <Link to="login" >
+            <div style={{ display: !user.first_name && "none", cursor:"pointer" }}>
+              <p
+                onClick={() => {
+                  localStorage.setItem("auth", JSON.stringify(""));
+                }}
+              >
+                Logout
+              </p>
+            </div>
+            <Link to="login">
               <MdAccountCircle
                 style={{
                   height: "60px",
                   width: "35px",
                   cursor: "pointer",
-                  display: user.first_name && "none"
+                  display: user.first_name && "none",
                 }}
               />
-              <p style={{display: !user.first_name && "none"}}>Mr. {user.first_name}</p>
+              <p style={{ display: !user.first_name && "none" }}>
+                Mr. {user.first_name}
+              </p>
             </Link>
           </div>
         </div>

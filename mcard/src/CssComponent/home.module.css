@@ -85,7 +85,7 @@
   align-items: center;
   font-size: x-large;
   box-sizing: border-box;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 .lop > h4{
     padding-top: 25px;

@@ -112,7 +112,7 @@ const Navbar = () => {
             <Link to="about" style={{textDecoration:"none"}}>
               <P1>About Us</P1>
             </Link>
-            <Link to="credit-card" style={{textDecoration:"none"}}>
+            <Link to="HomeCred" style={{textDecoration:"none"}}>
               <P1>Credit Card</P1>
             </Link>
             <Link to="offer" style={{textDecoration:"none"}}>

@@ -35,3 +35,27 @@
   height: 45px;
   box-sizing: border-box;
 }
+
+
+
+
+/* CredPage */
+
+.cmain{
+  display:flex;
+  gap:20px;
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+
+}
+.datar{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:20px
+}
+.mkl{
+  margin-top:250px;
+  
+
+}

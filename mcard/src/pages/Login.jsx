@@ -84,6 +84,9 @@ const Div1 = styled.div`
     outline: none;
     padding-left: 10px;
     border: 1px solid #1c1c1c;
+    &:focus{
+      border: 1.5px solid #0066EE;
+    }
   }
 `;
 const Div2 = styled.div`
@@ -109,6 +112,12 @@ const Button = styled.button`
   font-weight: 550;
   cursor: pointer;
   letter-spacing: 0.3px;
+  transition: 1s;
+
+  &:hover{
+    background: #0066EE;
+    border: none;
+  }
 `;
 const P2 = styled.p``;
 const SocialIcons = styled.div`
@@ -263,7 +272,7 @@ const Login = () => {
             />
           </SocialIcons>
           <P3>
-            <NavLink to="/signup">Don't have an account? Please Sign up.</NavLink>
+            <NavLink to="/signup" style={{color: "#0066EE"}}>Don't have an account? Please Sign up.</NavLink>
           </P3>
         </InnerDiv>
       </RightDiv>

@@ -28,12 +28,12 @@ function App() {
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/offer' element={<Offer/>}/>
-        <Route path='/credit-card' element={<CardApp/>}/>
-        <Route path='/cardpage' element={<CardPage/>}/>
+        <Route path='/HomeCred' element={<HomeCredit/>}/>
+        <Route path='/HomeCred/:id' element={<CardPage/>}/>
       </Routes>
       
       <Footer />
-     
+     {/* <HomeCredit/> */}
     </div>
   );
 }

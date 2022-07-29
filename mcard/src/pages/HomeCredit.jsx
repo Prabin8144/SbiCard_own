@@ -1,8 +1,28 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import styles from "../CssComponent/homecred.module.css"
-import data from "../data.json"
+import styles from "../CssComponent/homecred.module.css";
+
+import React, { useEffect }  from 'react';
+import { getProducts } from '../redux/Todo/action';
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from 'react-router-dom';
+
 const HomeCredit = () => {
+  const { data } = useSelector((state) => state.todo.todos);
+   
+    
+  const params = useParams();
+  console.log(params);
+
+  
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+    console.log(data);
+  }, [dispatch]);
+
+
+
   return (
     <>
         
@@ -15,13 +35,13 @@ const HomeCredit = () => {
         </div>
         <div className={styles.locard}>
         {data.map((el)=>(
-            <div className={styles.cardall}>
+            <div className={styles.cardall} key={el.id}>
                 <div>
                     <img src={el.image} alt="" />
                     <h1>{el.title}</h1>
                     <h4>{el.tpye}</h4>
                     <p>{el.description}</p>
-                    <Link to="/cardpage"><p style={{color:"blue"}}>Learn More</p></Link>
+                    <Link to={`/HomeCred/${el.id}`}><p style={{color:"blue"}}>Learn More</p></Link>
                     <button>Apply Now</button>
                 </div>
             </div>

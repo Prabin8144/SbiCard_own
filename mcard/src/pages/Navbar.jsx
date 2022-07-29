@@ -104,7 +104,7 @@ const Navbar = () => {
             <Link to="about">
               <p>About Us</p>
             </Link>
-            <Link to="credit-card">
+            <Link to="HomeCred">
               <p>Credit Card</p>
             </Link>
             <Link to="offer">

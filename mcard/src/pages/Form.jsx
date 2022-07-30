@@ -157,12 +157,12 @@ const Form = () => {
       </Div>
       <AlertDiv error={error}>
         <Alert style={{ width: "210px",margin:"auto" }} severity="error">
-          Invalid details!
+          Invalid data!
         </Alert>
       </AlertDiv>
       <AlertDiv2 success={success}>
         <Alert style={{ width: "210px",margin:"auto" }} severity="success">
-          Signup successful!
+          Data Saved!
         </Alert>
       </AlertDiv2>
     </div>

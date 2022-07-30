@@ -8,22 +8,23 @@ import { useState } from "react";
 const Home = () => {
   const navigate = useNavigate();
   let user = JSON.parse(localStorage.getItem("auth")) || [];
-  const [allData, setAllData] = useState();
+  const [allData, setAllData] = useState([]);
   // console.log(user, "user");
 
-  useEffect(()=>{
-    const getData = async() => {
-      let res = await fetch("http://localhost:8080/form/get")
+  const getData = async () => {
+    await fetch("http://localhost:8080/form/get")
       .then((res) => res.json())
       .then((res) => {
-        console.log(res.allForms,"rrr");
+        console.log(res.allForms, "rrr");
         setAllData(res.allForms);
-        console.log(allData,"data");
+        console.log(allData, "data");
       })
-      .catch((e)=>console.log(e));
-    }
+      .catch((e) => console.log(e));
+  };
+
+  useEffect(() => {
     getData();
-  },[])
+  }, []);
 
   return (
     <>
@@ -103,7 +104,7 @@ const Home = () => {
         </div>
       </div>
       <div className={styles.btnio}>
-        <Link to="/login" style={{textDecoration:"none"}}>
+        <Link to="/login" style={{ textDecoration: "none" }}>
           <h4 style={{ crusor: "pointer" }}>Pay Utility Bills</h4>
         </Link>
       </div>

@@ -59,7 +59,7 @@ const Form = () => {
   const handleSubmit = (e) => {
     let payload = JSON.stringify(form);
     console.log(form);
-    fetch(`http://localhost:8080/form`, {
+    fetch(`https://stark-lake-71022.herokuapp.com/form`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: payload,

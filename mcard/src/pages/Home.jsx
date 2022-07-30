@@ -12,7 +12,7 @@ const Home = () => {
   // console.log(user, "user");
 
   const getData = async () => {
-    await fetch("http://localhost:8080/form/get")
+    await fetch("https://stark-lake-71022.herokuapp.com/form/get")
       .then((res) => res.json())
       .then((res) => {
         console.log(res.allForms, "rrr");

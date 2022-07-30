@@ -158,7 +158,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     let payload = JSON.stringify(form);
     console.log(payload)
-    fetch(`http://localhost:8080/auth/login`, {
+    fetch(`https://stark-lake-71022.herokuapp.com/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: payload,
